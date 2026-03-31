@@ -111,4 +111,50 @@ namespace FinalProject
             {
             }
         }
+        public class InvalidFuelConsumption : Exception
+        {
+            public InvalidFuelConsumption()
+                : base("Fuel consumption must be greater than zero")
+            {
+            }
+            public InvalidFuelConsumption(string message)
+                : base(message)
+            {
+            }
+        }
+        public class InvalidWarehouseException : Exception
+        {
+            public InvalidWarehouseException()
+                : base("Warehouse cannot be null")
+            {
+            }
+            public InvalidWarehouseException(string message)
+                : base(message)
+            {
+            }
+        }
+        public class InvalidLoad : Exception
+        {
+            public InvalidLoad()
+                : base("Load must be between 0 and max capacity")
+            {
+            }
+            public InvalidLoad(string message)
+                : base(message)
+            {
+            }
+        }
+        public class InvalidWorkerException : Exception
+        {
+            public InvalidWorkerException()
+                : base("Worker cannot be null")
+            {
+            }
+            public InvalidWorkerException(string message)
+                : base(message)
+            {
+            }
+
+        }
     }
+}

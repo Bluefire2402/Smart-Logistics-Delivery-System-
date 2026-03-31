@@ -59,6 +59,7 @@ namespace Project
         {
             return this.status;
         }
+
         public void UpdateStatus(string newStatus)
         {
             if (newStatus != "Pending" && newStatus != "Assigned" && newStatus != "Delivered")
@@ -70,6 +71,22 @@ namespace Project
         public bool IsHeavy()
         {
             if (weight > 23)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool IsMedium()
+        {
+            if (weight > 10 && weight <= 23)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool IsLight()
+        {
+            if (weight <= 10)
             {
                 return true;
             }

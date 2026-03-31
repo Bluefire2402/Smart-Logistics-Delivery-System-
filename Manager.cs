@@ -21,20 +21,17 @@ namespace Project
         }
         public Worker FindBestWorker(List<Worker> workers)
         {
-            Worker best = null;
-            for (int i = 0; i < workers.Count; i++)
+            if (workers == null || workers.Count == 0)
             {
-                for (int j = 0; j < workers.Count; j++)
-                {
-                    if (workers[i].CalculatePerformance() > workers[j].CalculatePerformance())
-                    {
-                        best = workers[i];
-                    }
-                }
+                throw new HandleException.InvalidWorkerException("Worker list cannot be null or empty");
             }
-            if (best == null)
+            Worker best = workers[0];
+            for (int i = 1; i < workers.Count; i++)
             {
-                throw new HandleException.NoBestWorkerException();
+                if (workers[i].CalculatePerformance() > best.CalculatePerformance())
+                {
+                    best = workers[i];
+                }
             }
             return best;
         }

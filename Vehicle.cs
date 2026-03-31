@@ -40,6 +40,18 @@ namespace Project
             }
             this.maxCapacity = capacity;
         }
+        public double GetCurrentLoad()
+        {
+            return this.currentLoad;
+        }
+        public void SetCurrentLoad(double load)
+        {
+            if (load < 0 || load > maxCapacity)
+            {
+                throw new HandleException.InvalidLoad();
+            }
+            this.currentLoad = load;
+        }
         public double GetRemainingCapicity()
         {
             return maxCapacity - currentLoad;

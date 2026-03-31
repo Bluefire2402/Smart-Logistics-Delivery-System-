@@ -53,13 +53,19 @@ namespace Project
             }
 
         }
+        //-> find when the packge is pending
         public Vehicle FindBestVehicle(Package package)
         {
             if (package == null)
             {
                 throw new HandleException.InvalidPackageException("Package cannot be null");
             }
-            double bestEfficiency = 0;
+            if (package.GetStatus().Equals("Assigned") || package.GetStatus().Equals("Delivered"))
+            {
+                throw new HandleException.InvalidPackageException("The package have already been assigned or delivered");
+
+            }
+            double bestEfficiency = -1;
             Vehicle bestVehicle = null;
             for (int i = 0; i < vehicles.Count; i++)
             {

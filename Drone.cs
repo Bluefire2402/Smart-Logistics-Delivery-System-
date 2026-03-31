@@ -25,7 +25,15 @@ namespace Project
         }
         public override void Deliver(List<Package> packages)
         {
-            throw new HandleException.InvalidPackageException();
+            foreach (Package package in packages)
+            {
+                if (package != null && package.GetWeight() < GetRemainingCapicity() && package.IsLight())
+                {
+                    SetCurrentLoad(GetCurrentLoad() + package.GetWeight());
+                    package.UpdateStatus("Delivered");
+
+                }
+            }
         }
 
     }

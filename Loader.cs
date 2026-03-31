@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    internal class Loader
+    public class Loader : Worker
     {
+        private double maxLiftWeiht;
+
+        public Loader(int experienceYears, int tasksCompleted, bool isAvailable, double maxLiftWeight) : base(experienceYears, tasksCompleted, isAvailable)
+        {
+            this.maxLiftWeiht = maxLiftWeight;
+        }
+
+        public override void PerformTask()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
