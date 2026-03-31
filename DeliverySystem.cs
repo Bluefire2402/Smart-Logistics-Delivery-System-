@@ -66,6 +66,7 @@ namespace Project
         }
         public void ProcessDeliveries()
         {
+            // for each package -> for warehouse -> find best vehicle in the warehouse -> assign worker -> update package status to assigned
             foreach (Package p in allPackages)
             {
                 bool assigned = false;
@@ -73,6 +74,7 @@ namespace Project
                 {
                     foreach (Warehouse w in warehouses)
                     {
+                        //If there is no vehicle (Function FindBestVehicle will throw the exception) -> catch exception and continue to the next warehouse  
                         try
                         {
                             Vehicle v = w.FindBestVehicle(p);
@@ -100,7 +102,7 @@ namespace Project
         }
         public void SimulateDay()
         {
-
+            throw new NotImplementedException();
         }
     }
 

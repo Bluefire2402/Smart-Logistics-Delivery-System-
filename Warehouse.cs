@@ -56,6 +56,7 @@ namespace Project
         //-> find when the packge is pending
         public Vehicle FindBestVehicle(Package package)
         {
+            //Handle exceptions for null package, and package that is not pending
             if (package == null)
             {
                 throw new HandleException.InvalidPackageException("Package cannot be null");
@@ -65,6 +66,7 @@ namespace Project
                 throw new HandleException.InvalidPackageException("The package have already been assigned or delivered");
 
             }
+            //Find best vehicle
             double bestEfficiency = -1;
             Vehicle bestVehicle = null;
             for (int i = 0; i < vehicles.Count; i++)
@@ -79,6 +81,7 @@ namespace Project
                     }
                 }
             }
+            // If it's null -> no vehicle
             if (bestVehicle == null)
             {
                 throw new HandleException.NoBestVehicleException("No available vehicle can accommodate the package");
