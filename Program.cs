@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smart_Logistics___Delivery_System
+namespace SmartLogisticsDeliverySystem
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+
+
         }
     }
 }

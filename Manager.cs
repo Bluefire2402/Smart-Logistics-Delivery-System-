@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using FinalProject;
 
-namespace Project
+namespace SmartLogisticsDeliverySystem
+
 {
     public class Manager : Worker
     {
