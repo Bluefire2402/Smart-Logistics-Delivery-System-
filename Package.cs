@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SmartLogisticsDeliverySystem
+using SmartLogisticsDeliverySystem;
 
 namespace SmartLogisticsDeliverySystem
 {
@@ -59,7 +59,14 @@ namespace SmartLogisticsDeliverySystem
         {
             return this.status;
         }
-
+        public int GetPriorityLevel()
+        {
+            return this.priorityLevel;
+        }
+        public string GetDestination()
+        {
+            return this.destination;
+        }
         public void UpdateStatus(string newStatus)
         {
             if (newStatus != "Pending" && newStatus != "Assigned" && newStatus != "Delivered")
