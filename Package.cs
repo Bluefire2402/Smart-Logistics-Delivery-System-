@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FinalProject;
+using SmartLogisticsDeliverySystem;
 
-namespace Project
+namespace SmartLogisticsDeliverySystem
 {
     public class Package
     {
@@ -59,7 +59,14 @@ namespace Project
         {
             return this.status;
         }
-
+        public int GetPriorityLevel()
+        {
+            return this.priorityLevel;
+        }
+        public string GetDestination()
+        {
+            return this.destination;
+        }
         public void UpdateStatus(string newStatus)
         {
             if (newStatus != "Pending" && newStatus != "Assigned" && newStatus != "Delivered")
