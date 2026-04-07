@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomQueue.cs" />
+    <Compile Include="CustomStack.cs" />
     <Compile Include="DeliverySystem.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Drone.cs" />

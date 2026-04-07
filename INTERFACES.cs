@@ -22,6 +22,13 @@ namespace SmartLogisticsDeliverySystem
         T Peek();
         bool IsEmpty();
     }
+    internal interface IStackable<T>
+    {
+        void Push(T item);
+        T pop();
+        T Peek();
+        bool IsEmpty();
+    }
 
         
 }

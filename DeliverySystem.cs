@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FinalProject;
+using SmartLogisticsDeliverySystem;
 
 namespace SmartLogisticsDeliverySystem
 {
@@ -11,6 +11,11 @@ namespace SmartLogisticsDeliverySystem
     {
         private List<Warehouse> warehouses;
         private List<Package> allPackages;
+        public DeliverySystem()
+        {
+            this.warehouses = new List<Warehouse>();
+            this.allPackages = new List<Package>();
+        }
 
         public DeliverySystem(List<Warehouse> warehouses, List<Package> allPackages)
         {
