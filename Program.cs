@@ -38,80 +38,33 @@ namespace SmartLogisticsDeliverySystem
                         switch (choice)
                         {
                             case "1":
-                                Console.Write("Enter ID: ");
-                                int id = int.Parse(Console.ReadLine());
 
-                                Console.Write("Weight: ");
-                                double weight = double.Parse(Console.ReadLine());
-
-                                Console.Write("Priority (1-5): ");
-                                int priority = int.Parse(Console.ReadLine());
-
-                                Console.Write("Destination: ");
-                                string destination = Console.ReadLine();
-
-                                Package p = new Package(id, weight, priority, destination, "Pending");
-                                system.AddPackage(p);
-
-                                undoStack.Push("AddPackage");
-                                Console.WriteLine("Package added!");
                                 break;
-
+                     
                             case "2":
-                                system.ProcessDeliveries();
-                                undoStack.Push("ProcessDeliveries");
-                                Console.WriteLine("Deliveries processed!");
-                                break;
 
+                                break;
                             case "3":
-                                system.SortPackages();
-                                Console.WriteLine("Packages sorted!");
-                                break;
 
+                                break;
                             case "4":
-                                Console.Write("Enter package ID: ");
-                                int searchId = int.Parse(Console.ReadLine());
 
-                                Package found = system.SearchPackageById(searchId);
-
-                                if (found != null)
-                                    Console.WriteLine("Package found!");
-                                else
-                                    Console.WriteLine("Not found.");
                                 break;
-
                             case "5":
-                                system.SimulateDay();
-                                Console.WriteLine("Simulation complete!");
-                                break;
 
+                                break;
                             case "6":
-                                if (!undoStack.IsEmpty())
-                                {
-                                    string lastAction = undoStack.pop();
-                                    Console.WriteLine("Undo: " + lastAction);
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Nothing to undo.");
-                                }
-                                break;
 
+                                break;
                             case "7":
-                                fileManager.loadedPackages = system.GetAllPackages();
-                                fileManager.Save("data.txt");
-                                Console.WriteLine("Saved!");
-                                break;
 
+                                break;
                             case "8":
-                                fileManager.Load("data.txt");
-                                Console.WriteLine("Loaded!");
-                                break;
 
+                                break;
                             case "0":
-                                running = false;
-                                break;
 
+                                break;
                             default:
                                 Console.WriteLine("Invalid option.");
                                 break;
