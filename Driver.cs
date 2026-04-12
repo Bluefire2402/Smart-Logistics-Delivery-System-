@@ -17,7 +17,7 @@ namespace SmartLogisticsDeliverySystem
 
         public override void PerformTask()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Driver is currently on delivery");
         }
     }
 }

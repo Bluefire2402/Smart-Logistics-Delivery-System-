@@ -9,17 +9,17 @@ using SmartLogisticsDeliverySystem;
 namespace SmartLogisticsDeliverySystem
 {
 
-    internal class FileManager : IFileManager
+    internal class FileManager : IFileManager, ISortable
     {
-        public List<Package> loadedPackages = new List<Package>();
+        private List<Package> loadedPackages = new List<Package>();
         public void Load(string path)
         {
             if (!File.Exists(path))
             {
-                Console.WriteLine("Fhe file was not found");
+                Console.WriteLine("The file was not found");
                 return;
             }
-
+            loadedPackages.Clear();
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
@@ -36,7 +36,6 @@ namespace SmartLogisticsDeliverySystem
                         string destination = parts[4];
                         string status = parts[5];
                         Package p = new Package(id, weight, priority, destination, status);
-
                         loadedPackages.Add(p);
                     }
                 }
@@ -54,10 +53,18 @@ namespace SmartLogisticsDeliverySystem
                     writer.WriteLine($"PACKAGE|{p.GetId()}|{p.GetWeight()}|{p.GetPriorityLevel()}|{p.GetDestination()}|{p.GetStatus()}");
                 }
             }
-
             Console.WriteLine("The data was saved ");
         }
-        public void SortPackagesByPriority()
+        public void SetPackages(List<Package> packages)
+        {
+            loadedPackages = packages;
+        }
+        public List<Package> GetPackages()
+        {
+            return loadedPackages;
+        }
+
+        public void Sort()
         {
             int n = loadedPackages.Count;
 

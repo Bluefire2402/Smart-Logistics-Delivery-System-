@@ -14,20 +14,18 @@ namespace SmartLogisticsDeliverySystem
                 : base("Name cannot be empty")
             {
             }
-
             public InvalidNameException(string message)
                 : base(message)
             {
             }
         }
-        public class InvalidObjectDate : Exception
+        public class InvalidObjectData : Exception
         {
-            public InvalidObjectDate()
+            public InvalidObjectData()
                 : base("Object can not be null or empty")
             {
             }
-
-            public InvalidObjectDate(string message)
+            public InvalidObjectData(string message)
                 : base(message)
             {
             }
@@ -35,10 +33,9 @@ namespace SmartLogisticsDeliverySystem
         public class InvalidCapacity : Exception
         {
             public InvalidCapacity()
-                : base("Object can not be null or empty")
+                : base("capacity cannot be 0")
             {
             }
-
             public InvalidCapacity(string message)
                 : base(message)
             {
@@ -65,7 +62,6 @@ namespace SmartLogisticsDeliverySystem
                 : base(message)
             {
             }
-
         }
         public class InvalidStatus : Exception
         {
@@ -154,7 +150,6 @@ namespace SmartLogisticsDeliverySystem
                 : base(message)
             {
             }
-
         }
     }
 }

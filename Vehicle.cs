@@ -31,7 +31,7 @@ namespace SmartLogisticsDeliverySystem
         {
             return this.isAvailable;
         }
-        public void SetCapicity(double capacity)
+        public void SetCapacity(double capacity)
         {
             if (capacity <= 0)
             {
@@ -51,7 +51,7 @@ namespace SmartLogisticsDeliverySystem
             }
             this.currentLoad = load;
         }
-        public double GetRemainingCapicity()
+        public double GetRemainingCapacity()
         {
             return maxCapacity - currentLoad;
         }
@@ -66,7 +66,7 @@ namespace SmartLogisticsDeliverySystem
         public abstract void Deliver(List<Package> packages);
         public override void Display()
         {
-            Console.WriteLine($"ID: {id}Vehicle Name: {name}, Speed: {speed}, Max Capicity: {maxCapacity}, Current Load: {currentLoad}, Is Available: {isAvailable}");
+            Console.WriteLine($"ID: {id}, Vehicle Name: {name}, Speed: {speed}, Max Capacity: {maxCapacity}, Current Load: {currentLoad}, Is Available: {isAvailable}");
         }
        
     }
