@@ -8,9 +8,9 @@ namespace SmartLogisticsDeliverySystem
 {
     public abstract class Entity
     {
-        public int id;
-        public string name;
-        public DateTime createdDate;
+        protected int id;
+        protected string name;
+        protected DateTime createdDate;
         public void SetName(string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -20,15 +20,27 @@ namespace SmartLogisticsDeliverySystem
             this.name = name;
 
         }
+        public Entity()
+        {
+            createdDate = DateTime.Now;
+        }
         public string GetName()
         {
             return name;
+        }
+        public int GetId()
+        {
+            return id;
+        }
+        public DateTime GetCreatedDate()
+        {
+            return createdDate;
         }
         public virtual bool Validate()
         {
             if (string.IsNullOrEmpty(name))
             {
-                throw new HandleException.InvalidObjectDate();
+                throw new HandleException.InvalidObjectData();
             }
             return true;
         }

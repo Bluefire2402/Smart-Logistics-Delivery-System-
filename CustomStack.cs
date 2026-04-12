@@ -13,19 +13,14 @@ namespace Smart_Logistics___Delivery_System
         private List<T> items = new List<T>();
         public bool IsEmpty()
         {
-            if (IsEmpty())
-                throw new Exception("The stack is empty");
             return items.Count == 0;
         }
-
         public T Peek()
         {
             if (IsEmpty())
                 throw new Exception("The stack is empty");
             return items[items.Count - 1];
-
         }
-
         public T pop()
         {
             if (IsEmpty())
@@ -35,7 +30,6 @@ namespace Smart_Logistics___Delivery_System
             items.RemoveAt(items.Count - 1);
             return last;
         }
-
         public void Push(T item)
         {
             items.Add(item);

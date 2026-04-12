@@ -77,7 +77,7 @@ namespace SmartLogisticsDeliverySystem
             Vehicle bestVehicle = null;
             for (int i = 0; i < vehicles.Count; i++)
             {
-                if (vehicles[i].IsAvailable() && vehicles[i].GetRemainingCapicity() >= package.GetWeight())
+                if (vehicles[i].IsAvailable() && vehicles[i].GetRemainingCapacity() >= package.GetWeight())
                 {
                     double efficiency = vehicles[i].CalculateEfficiency();
                     if (efficiency > bestEfficiency)

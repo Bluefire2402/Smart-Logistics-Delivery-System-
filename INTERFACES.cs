@@ -6,29 +6,27 @@ using System.Threading.Tasks;
 
 namespace SmartLogisticsDeliverySystem
 {
-    internal interface IFileManager
+    public interface IFileManager
     {
         void Save(string path);
         void Load(string path);
     }
-    internal interface ISortable
+    public interface ISortable
     {
         void Sort();
     }
-    internal interface IQueueable<T>
+    public interface IQueueable<T>
     {
         void Enqueue(T item);
         T Dequeue();
         T Peek();
         bool IsEmpty();
     }
-    internal interface IStackable<T>
+    public interface IStackable<T>
     {
         void Push(T item);
         T pop();
         T Peek();
         bool IsEmpty();
     }
-
-        
 }

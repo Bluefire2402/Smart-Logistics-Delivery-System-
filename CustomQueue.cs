@@ -9,8 +9,7 @@ namespace Smart_Logistics___Delivery_System
 {
     internal class CustomQueue<T> : IQueueable<T>
     {
-        public List<T> items = new List<T>();
-        
+        private List<T> items = new List<T>();
         public T Dequeue()
         {
             if (IsEmpty())
@@ -19,21 +18,18 @@ namespace Smart_Logistics___Delivery_System
             items.RemoveAt(0);
             return first;
         }
-
         public void Enqueue(T item)
         {
             items.Add(item);
         }
-
         public bool IsEmpty()
         {
             return items.Count == 0;
         }
-
         public T Peek()
         {
             if (IsEmpty())
-                throw new Exception("Queue is IsEmpty");
+                throw new Exception("Queue is Empty");
             return items[0];
         }
     }

@@ -60,11 +60,11 @@ namespace SmartLogisticsDeliverySystem
             {
                 for (int j = 0; j < allPackages.Count - i - 1; j++)
                 {
-                    if (allPackages[i].CalculatePriorityScore() < allPackages[j].CalculatePriorityScore())
+                    if (allPackages[j].CalculatePriorityScore() < allPackages[j + 1].CalculatePriorityScore())
                     {
-                        Package temp = allPackages[i];
-                        allPackages[i] = allPackages[j];
-                        allPackages[j] = temp;
+                        Package temp = allPackages[j];
+                        allPackages[j] = allPackages[j + 1];
+                        allPackages[j + 1] = temp;
                     }
                 }
             }
@@ -107,7 +107,8 @@ namespace SmartLogisticsDeliverySystem
         }
         public void SimulateDay()
         {
-            throw new NotImplementedException();
+            SortPackages();
+            ProcessDeliveries();
         }
         public List<Warehouse> GetWarehouses()
         {

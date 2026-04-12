@@ -18,7 +18,7 @@ namespace SmartLogisticsDeliverySystem
         }
         public override void PerformTask()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("manager is organizing workers");
         }
         public Worker FindBestWorker(List<Worker> workers)
         {

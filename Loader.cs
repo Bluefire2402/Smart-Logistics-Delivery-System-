@@ -8,16 +8,16 @@ namespace SmartLogisticsDeliverySystem
 {
     public class Loader : Worker
     {
-        private double maxLiftWeiht;
+        private double maxLiftWeight;
 
         public Loader(int experienceYears, int tasksCompleted, bool isAvailable, double maxLiftWeight) : base(experienceYears, tasksCompleted, isAvailable)
         {
-            this.maxLiftWeiht = maxLiftWeight;
+            this.maxLiftWeight = maxLiftWeight;
         }
 
         public override void PerformTask()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("The loader is working");
         }
     }
 }
