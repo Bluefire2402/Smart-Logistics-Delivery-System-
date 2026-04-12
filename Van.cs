@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FinalProject;
 
 namespace SmartLogisticsDeliverySystem
 {
     public class Van : Vehicle
     {
+        private double fuelConsumption;
         private bool isElectric;
 
         public Van()
@@ -32,6 +32,10 @@ namespace SmartLogisticsDeliverySystem
                     }
                 }
             }
+        }
+        public Van(double capacity, double fuelConsumption)
+        {
+            SetCapacity(capacity);
         }
     }
 }

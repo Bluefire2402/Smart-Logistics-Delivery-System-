@@ -109,6 +109,10 @@ namespace SmartLogisticsDeliverySystem
         {
             throw new NotImplementedException();
         }
+        public List<Warehouse> GetWarehouses()
+        {
+            return warehouses;
+        }
     }
 
 }

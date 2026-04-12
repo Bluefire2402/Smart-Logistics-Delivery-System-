@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FinalProject;
 
 namespace SmartLogisticsDeliverySystem
 {
@@ -27,6 +26,13 @@ namespace SmartLogisticsDeliverySystem
             this.packages = packages;
             this.vehicles = vehicles;
             this.workers = workers;
+        }
+        public Warehouse(string name)
+        {
+            this.name = name;
+            this.packages = new List<Package>();
+            this.vehicles = new List<Vehicle>();
+            this.workers = new List<Worker>();
         }
         public void AddPackage(Package package)
         {
@@ -113,5 +119,19 @@ namespace SmartLogisticsDeliverySystem
             }
             return packages;
         }
+        public void AddVehicle(Vehicle v)
+        {
+            if (v == null)
+            {
+                throw new HandleException.InvalidVehicleException("Vehicle cannot be null");
+            }
+
+            vehicles.Add(v);
+        }
+        public string GetName()
+        {
+            return name;
+        }
+
     }
 }
