@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FinalProject;
 
 namespace SmartLogisticsDeliverySystem
 {
@@ -69,5 +68,6 @@ namespace SmartLogisticsDeliverySystem
         {
             Console.WriteLine($"ID: {id}Vehicle Name: {name}, Speed: {speed}, Max Capicity: {maxCapacity}, Current Load: {currentLoad}, Is Available: {isAvailable}");
         }
+       
     }
 }

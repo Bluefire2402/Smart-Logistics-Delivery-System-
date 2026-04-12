@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FinalProject;
 
 namespace SmartLogisticsDeliverySystem
 {
@@ -16,7 +15,7 @@ namespace SmartLogisticsDeliverySystem
             {
                 if (package != null)
                 {
-                    if (package.GetWeight() < GetRemainingCapicity() && package.IsHeavy())
+                    if (package.GetWeight() < GetRemainingCapacity() && package.IsHeavy())
                     {
                         SetCurrentLoad(GetCurrentLoad() + package.GetWeight());
                         package.UpdateStatus("Delivered");
