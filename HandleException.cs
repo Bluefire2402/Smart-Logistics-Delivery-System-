@@ -151,5 +151,27 @@ namespace SmartLogisticsDeliverySystem
             {
             }
         }
+        public class NoAvailableWoker : Exception
+        {
+            public NoAvailableWoker()
+     : base("No available worker found")
+            {
+            }
+            public NoAvailableWoker(string message)
+                : base(message)
+            {
+            }
+        }
+        public class InvalidIdException : Exception
+        {
+            public InvalidIdException()
+                : base("ID must be greater than zero")
+            {
+            }
+            public InvalidIdException(string message)
+                : base(message)
+            {
+            }
+        }
     }
 }

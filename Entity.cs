@@ -32,6 +32,14 @@ namespace SmartLogisticsDeliverySystem
         {
             return id;
         }
+        public void SetId(int id)
+        {
+            if (id <= 0)
+            {
+                throw new HandleException.InvalidIdException();
+            }
+            this.id = id;
+        }
         public DateTime GetCreatedDate()
         {
             return createdDate;

@@ -14,10 +14,14 @@ namespace SmartLogisticsDeliverySystem
         {
             this.maxLiftWeight = maxLiftWeight;
         }
-
+        public double GetMaxLiftWeight()
+        {
+            return this.maxLiftWeight;
+        }
         public override void PerformTask()
         {
             Console.WriteLine("The loader is working");
+            addTask();
         }
     }
 }

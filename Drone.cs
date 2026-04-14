@@ -13,6 +13,10 @@ namespace SmartLogisticsDeliverySystem
         {
             this.maxDistance = maxDistance;
         }
+        public double GetMaxDistance()
+        {
+            return maxDistance;
+        }
         public override double CalculateEfficiency()
         {
             return base.CalculateEfficiency() * maxDistance;

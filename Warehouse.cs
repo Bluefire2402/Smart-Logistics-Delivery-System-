@@ -79,12 +79,30 @@ namespace SmartLogisticsDeliverySystem
             {
                 if (vehicles[i].IsAvailable() && vehicles[i].GetRemainingCapacity() >= package.GetWeight())
                 {
-                    double efficiency = vehicles[i].CalculateEfficiency();
-                    if (efficiency > bestEfficiency)
+                    // Check the weight of the package then check the type of the vehicle if it's suitable for the package
+                    bool isSuitable = false;
+                    if (package.IsHeavy() && vehicles[i] is Truck)
                     {
-                        bestEfficiency = efficiency;
-                        bestVehicle = vehicles[i];
+                        isSuitable = true;
                     }
+                    else if (package.IsMedium() && vehicles[i] is Van)
+                    {
+                        isSuitable = true;
+                    }
+                    else if (package.IsLight() && vehicles[i] is Drone)
+                    {
+                        isSuitable = true;
+                    }
+                    if (isSuitable)
+                    {
+                        double efficiency = vehicles[i].CalculateEfficiency();
+                        if (efficiency > bestEfficiency)
+                        {
+                            bestEfficiency = efficiency;
+                            bestVehicle = vehicles[i];
+                        }
+                    }
+
                 }
             }
             // If it's null -> no vehicle
@@ -96,12 +114,43 @@ namespace SmartLogisticsDeliverySystem
         }
         public Worker AsignWorker()
         {
+            //find the list available worker --> if there is a manager -> find bestworker. If there is no manager -> assign the first available worker. If there is no available worker -> throw exception
+            List<Worker> availableWorkers = new List<Worker>();
+            Manager warehouseManager = null;
             for (int i = 0; i < workers.Count; i++)
             {
                 if (workers[i].isWorkerAvailable())
-                    return workers[i];
+                {
+                    availableWorkers.Add(workers[i]);
+                }
+                if (workers[i] is Manager)
+                {
+                    warehouseManager = (Manager)workers[i];
+                }
             }
-            throw new Exception("No available worker found");
+            if (availableWorkers.Count() == 0)
+
+            {
+                throw new HandleException.NoAvailableWoker("No available worker found at the moment");
+            }
+            // If there is a manager -> find the best worker
+            if (warehouseManager != null)
+            {
+                Worker bestDriver = warehouseManager.FindBestWorker(availableWorkers);
+                if (bestDriver == null)
+                {
+                    throw new HandleException.NoAvailableWoker("No available Driver found in this warehouse.");
+                }
+                return bestDriver;
+            }
+            //if there is no manager -> assign the first available worker
+            foreach (Worker w in availableWorkers)
+            {
+                if (w is Driver) return w;
+            }
+
+            throw new HandleException.NoAvailableWoker("No available Driver found in this warehouse.");
+
         }
         public List<Package> GetPendingPackages()
         {
@@ -132,6 +181,22 @@ namespace SmartLogisticsDeliverySystem
         {
             return name;
         }
+        public void AddWorker(Worker worker)
+        {
+            if (worker == null)
+            {
+                throw new HandleException.InvalidWorkerException("Worker cannot be null");
+            }
+            workers.Add(worker);
+        }
+        public List<Vehicle> GetVehicles()
+        {
+            return this.vehicles;
+        }
 
+        public List<Worker> GetWorkers()
+        {
+            return this.workers;
+        }
     }
 }
