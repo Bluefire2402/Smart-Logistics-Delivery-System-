@@ -27,8 +27,17 @@ namespace SmartLogisticsDeliverySystem
         {
             tasksCompleted++;
         }
+        public int GetExperienceYears()
+        {
+            return experienceYears;
+        }
+        public int GetTasksCompleted()
+        {
+            return tasksCompleted;
+        }
         public virtual double CalculatePerformance()
         {
+            if (tasksCompleted == 0) return 0;
             return (experienceYears / tasksCompleted) / 100;
         }
         public abstract void PerformTask();

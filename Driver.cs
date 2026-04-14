@@ -14,10 +14,14 @@ namespace SmartLogisticsDeliverySystem
         {
             this.licenseType = licenseType;
         }
-
+        public string GetLicenseType()
+        {
+            return this.licenseType;
+        }
         public override void PerformTask()
         {
-            Console.WriteLine("Driver is currently on delivery");
+            Console.WriteLine("Driver is delivering packages");
+            addTask();
         }
     }
 }

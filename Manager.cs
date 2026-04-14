@@ -19,20 +19,32 @@ namespace SmartLogisticsDeliverySystem
         public override void PerformTask()
         {
             Console.WriteLine("manager is organizing workers");
+            addTask();
+        }
+        public int GetTeamSize()
+        {
+            return teamSize;
         }
         public Worker FindBestWorker(List<Worker> workers)
         {
+            //find best driver to assign
             if (workers == null || workers.Count == 0)
             {
                 throw new HandleException.InvalidWorkerException("Worker list cannot be null or empty");
             }
-            Worker best = workers[0];
-            for (int i = 1; i < workers.Count; i++)
+            Worker best = null;
+            double bestPerformance = double.MinValue;
+            for (int i = 0; i < workers.Count; i++)
             {
-                if (workers[i].CalculatePerformance() > best.CalculatePerformance())
+                if (workers[i] is Driver)
                 {
-                    best = workers[i];
+                    if (workers[i].CalculatePerformance() > bestPerformance)
+                    {
+                        best = workers[i];
+                        bestPerformance = workers[i].CalculatePerformance();
+                    }
                 }
+
             }
             return best;
         }

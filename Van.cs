@@ -13,8 +13,12 @@ namespace SmartLogisticsDeliverySystem
         {
             this.isElectric = isElectric;
         }
+        public bool IsElectric()
+        {
+            return isElectric;
+        }
         public override void Deliver(List<Package> packages)
-        { 
+        {
             foreach (Package package in packages)
             {
                 if (package != null)
